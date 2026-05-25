@@ -31,7 +31,7 @@ export default function Footer() {
         {/* Right Side: Social Icons */}
         <div className={styles.socials}>
           <a
-            href="https://github.com/joaovictordeoliveirachaves"
+            href="https://github.com/joaovictorchaves18"
             target="_blank"
             rel="noopener noreferrer"
             className={styles.socialLink}

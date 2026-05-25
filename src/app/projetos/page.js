@@ -11,7 +11,7 @@ const FEATURED_PROJECTS = [
     id: "feat-comedoria",
     name: "Flávia Oliveira Comedoria na Copa",
     description: "Plataforma web avançada para venda automatizada de ingressos e gestão de eventos. Inclui painel administrativo com analytics em tempo real, controle de bilheteria, geração de QR Codes para check-in e envio automático de mensagens de confirmação integradas com a API do WhatsApp.",
-    html_url: "https://github.com/joaovictordeoliveirachaves", // Link base do github
+    html_url: "https://github.com/joaovictorchaves18", // Link base do github
     homepage: "http://localhost:3000/",
     language: "JavaScript / Next.js",
     stargazers_count: 8,
@@ -22,7 +22,7 @@ const FEATURED_PROJECTS = [
     id: "feat-estufa",
     name: "Estufa Automatizada IoT",
     description: "Sistema embarcado baseado em ESP32 que monitora temperatura, umidade do ar e umidade do solo em tempo real. Os dados são enviados via protocolo MQTT para um painel web que aciona de forma automatizada bombas d'água e coolers de refrigeração.",
-    html_url: "https://github.com/joaovictordeoliveirachaves",
+    html_url: "https://github.com/joaovictorchaves18",
     homepage: null,
     language: "C++ / IoT",
     stargazers_count: 5,
@@ -33,7 +33,7 @@ const FEATURED_PROJECTS = [
     id: "feat-robotic-arm",
     name: "Controlador de Braço Robótico",
     description: "Firmware de controle físico para robô manipulador industrial de 3 graus de liberdade. Implementa algoritmos de cinemática inversa e acionamento preciso de servos motores, sincronizando o hardware dinamicamente com uma HMI web de controle manual.",
-    html_url: "https://github.com/joaovictordeoliveirachaves",
+    html_url: "https://github.com/joaovictorchaves18",
     homepage: null,
     language: "C++ / Arduino",
     stargazers_count: 4,
@@ -54,7 +54,7 @@ export default function Projetos() {
       setApiError(false);
       try {
         // Chamada assíncrona da API do GitHub para buscar repositórios públicos
-        const res = await fetch("https://api.github.com/users/joaovictordeoliveirachaves/repos?sort=updated&per_page=10");
+        const res = await fetch("https://api.github.com/users/joaovictorchaves18/repos?sort=updated&per_page=10");
         if (!res.ok) {
           throw new Error("Erro de limites ou API inativa");
         }
