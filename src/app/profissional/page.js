@@ -4,72 +4,72 @@ import styles from "./profissional.module.css";
 
 export const metadata = {
   title: "Experiência Profissional | João Victor Chaves",
-  description: "Histórico profissional de João Victor como desenvolvedor Fullstack Freelancer, engenheiro de IoT e automação e contribuidor open-source.",
+  description: "Trabalhos práticos de João Victor: desenvolvimento web freelancer, protótipos de automação física e contribuições open source.",
 };
 
 export default function Profissional() {
-  const experiences = [
+  const experiencias = [
     {
       role: "Desenvolvedor Fullstack Freelancer",
-      company: "Projetos Independentes & Consultoria Web",
+      company: "Projetos Independentes & Desenvolvimento Web",
       period: "Março 2024 - Presente",
-      desc: "Concepção, arquitetura e desenvolvimento de soluções digitais de alto desempenho e interfaces modernas sob medida para empresas locais e profissionais liberais.",
+      desc: "Criação de páginas institucionais, landpages e painéis web sob medida para pequenos comércios locais e profissionais autônomos.",
       activities: [
-        "Desenvolvimento de plataformas web robustas utilizando Next.js (App Router) e React, focando em UX fluida e excelente pontuação de SEO.",
-        "Modelagem de bancos de dados relacionais e criação de rotas de APIs REST seguras e otimizadas.",
-        "Desenvolvimento de painéis administrativos de gestão para visualização rápida de métricas financeiras e de conversão de clientes.",
-        "Deploy automatizado e monitoramento contínuo de aplicações em plataformas na nuvem como Vercel."
+        "Criação de telas responsivas usando Next.js e React com foco em usabilidade e boa velocidade de carregamento.",
+        "Programação de rotas de API em JavaScript e modelagem inicial de banco de dados SQL.",
+        "Integrações de formulários de contato e disparo de mensagens automáticas de confirmação.",
+        "Hospedagem de sites e monitoramento básico na Vercel."
       ],
-      tags: ["React", "Next.js", "Node.js", "REST APIs", "PostgreSQL", "Vercel", "Git"],
+      tags: ["React", "Next.js", "Node.js", "APIs REST", "Bancos de Dados", "Vercel", "Git"],
       icon: <Hammer size={18} />
     },
     {
-      role: "Desenvolvedor de Automação & IoT",
-      company: "Projetos Integrados & Automação Inteligente (UFPE / Freelance)",
+      role: "Projetos de Automação & IoT",
+      company: "Protótipos de Sistemas Conectados (UFPE / Autônomo)",
       period: "Junho 2024 - Presente",
-      desc: "Prototipagem de sistemas físicos conectados (Internet das Coisas) e integração de sensores analógicos/digitais para sensoriamento remoto e monitoramento em tempo real.",
+      desc: "Montagem física de circuitos de teste e programação de chips para medição remota de dados ambientais e acionamento de cargas.",
       activities: [
-        "Desenvolvimento de firmwares reativos de alto desempenho em C/C++ para microcontroladores ESP32 e placas Arduino.",
-        "Integração física e lógica de sensores industriais (temperatura, umidade, presença, corrente) com envio de telemetria via protocolos MQTT e HTTP.",
-        "Programação básica de Controladores Lógicos Programáveis (CLPs) seguindo a norma IEC 61131 para sequenciamento lógico industrial.",
-        "Desenvolvimento de interfaces HMI integradas com a web para monitoramento remoto do estado do hardware."
+        "Programação de firmwares em linguagem C/C++ para placas ESP32 e microcontroladores Arduino.",
+        "Coleta de dados de sensores físicos (temperatura, umidade, presença) e envio de dados via protocolo MQTT.",
+        "Testes práticos de lógica de controle simples em CLPs industriais seguindo esquemas lógicos ladder.",
+        "Montagem básica de circuitos em protoboard e placas de ensaio."
       ],
-      tags: ["C/C++", "ESP32", "Arduino", "IoT", "MQTT", "CLPs", "Eletrônica Aplicada"],
+      tags: ["C/C++", "ESP32", "Arduino", "IoT", "MQTT", "Lógica CLP", "Circuitos"],
       icon: <Terminal size={18} />
     },
     {
-      role: "Contribuidor Open Source & Projetos de Software",
-      company: "Comunidade de Desenvolvimento Independente",
+      role: "Projetos Pessoais & Open Source",
+      company: "Comunidade e Repositórios Próprios",
       period: "Janeiro 2023 - Presente",
-      desc: "Criação de scripts utilitários, automações de setups locais e contribuição ativa em repositórios abertos de ferramentas comunitárias.",
+      desc: "Organização de scripts locais de utilidade prática e escrita de guias e tutoriais de uso no GitHub.",
       activities: [
-        "Desenvolvimento de pacotes de automação simples e scripts bash/Node.js para otimizar setups de ambientes de desenvolvimento.",
-        "Criação de documentações ricas, READMEs organizados e tutoriais passo a passo em markdown para projetos open source no GitHub.",
-        "Refatoração constante de algoritmos buscando otimização de tempo de execução, modularização elegante e conformidade com clean code."
+        "Desenvolvimento de pequenos scripts Node.js e Bash para automatizar a criação de pastas e arquivos de teste.",
+        "Escrita de READMEs detalhados com tutoriais fáceis em Markdown nos meus repositórios do GitHub.",
+        "Refatoração de trechos de código buscando boa legibilidade e organização modular limpa."
       ],
-      tags: ["Node.js", "Bash Scripting", "Git & GitHub", "Markdown", "Clean Code"],
+      tags: ["Node.js", "Bash Script", "Git & GitHub", "Markdown", "Clean Code"],
       icon: <Star size={18} />
     }
   ];
 
   return (
     <div className={styles.container}>
-      {/* Header Section */}
+      {/* Cabeçalho */}
       <section className={styles.header}>
         <h1 className={`${styles.title} gradient-text`}>Trajetória Profissional</h1>
         <p className={styles.subtitle}>
-          Projetos executados, consultorias em desenvolvimento web e protótipos de automação física e IoT.
+          Meus projetos práticos desenvolvidos, consultorias autônomas de web e estudos de IoT aplicados.
         </p>
       </section>
 
-      {/* Timeline of Experience */}
+      {/* Timeline das Experiências */}
       <section className={styles.timeline}>
-        {experiences.map((exp, index) => (
+        {experiencias.map((exp, index) => (
           <div key={exp.role} className={styles.timelineItem}>
-            {/* Timeline pulsing dot */}
+            {/* Ponto na linha lateral */}
             <div className={styles.timelineDot} />
 
-            {/* Experience Glass Card */}
+            {/* Card com a Experiência */}
             <div className={`${styles.experienceCard} glass-panel`}>
               <div className={styles.cardHeader}>
                 <div>
@@ -85,7 +85,7 @@ export default function Profissional() {
               <div className={styles.cardBody}>
                 <p className={styles.description}>{exp.desc}</p>
 
-                {/* Activities lists */}
+                {/* Lista de Atividades */}
                 <div className={styles.activitiesList}>
                   {exp.activities.map((act, idx) => (
                     <div key={idx} className={styles.activityItem}>
@@ -95,7 +95,7 @@ export default function Profissional() {
                   ))}
                 </div>
 
-                {/* Tech tags used in work */}
+                {/* Tecnologias Usadas */}
                 <div className={styles.techTags}>
                   {exp.tags.map((tag) => (
                     <span

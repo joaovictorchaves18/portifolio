@@ -5,13 +5,13 @@ import { Search, ExternalLink, Star, GitFork, FolderCode, Terminal, Sparkles, Al
 import { Github } from "@/components/Icons";
 import styles from "./projetos.module.css";
 
-// Projetos em destaque pré-configurados (representam os grandes marcos do João Victor)
-const FEATURED_PROJECTS = [
+// Projetos destacados do João (incluindo seu trabalho de bilheteria real da Copa!)
+const PROJETOS_DESTAQUES = [
   {
-    id: "feat-comedoria",
+    id: "destaque-comedoria",
     name: "Flávia Oliveira Comedoria na Copa",
-    description: "Plataforma web avançada para venda automatizada de ingressos e gestão de eventos. Inclui painel administrativo com analytics em tempo real, controle de bilheteria, geração de QR Codes para check-in e envio automático de mensagens de confirmação integradas com a API do WhatsApp.",
-    html_url: "https://github.com/joaovictorchaves18", // Link base do github
+    description: "Sistema web completo para reserva de ingressos e controle de eventos. Possui painel de gerenciamento administrativo para acompanhamento de vendas em tempo real, geração de QR Codes para check-in no portão e disparo de mensagens automáticas via WhatsApp API.",
+    html_url: "https://github.com/joaovictorchaves18",
     homepage: "http://localhost:3000/",
     language: "JavaScript / Next.js",
     stargazers_count: 8,
@@ -19,9 +19,9 @@ const FEATURED_PROJECTS = [
     isFeatured: true,
   },
   {
-    id: "feat-estufa",
-    name: "Estufa Automatizada IoT",
-    description: "Sistema embarcado baseado em ESP32 que monitora temperatura, umidade do ar e umidade do solo em tempo real. Os dados são enviados via protocolo MQTT para um painel web que aciona de forma automatizada bombas d'água e coolers de refrigeração.",
+    id: "destaque-estufa",
+    name: "Estufa Inteligente IoT",
+    description: "Protótipo baseado em ESP32 que faz a leitura física de sensores de temperatura e umidade e envia os dados via rede MQTT para um painel web, que por sua vez aciona automaticamente motores de ventilação e irrigação.",
     html_url: "https://github.com/joaovictorchaves18",
     homepage: null,
     language: "C++ / IoT",
@@ -30,9 +30,9 @@ const FEATURED_PROJECTS = [
     isFeatured: true,
   },
   {
-    id: "feat-robotic-arm",
-    name: "Controlador de Braço Robótico",
-    description: "Firmware de controle físico para robô manipulador industrial de 3 graus de liberdade. Implementa algoritmos de cinemática inversa e acionamento preciso de servos motores, sincronizando o hardware dinamicamente com uma HMI web de controle manual.",
+    id: "destaque-arm",
+    name: "Braço Robótico Articulado",
+    description: "Programação de hardware para controle físico de motores de passo em um mini manipulador robótico industrial. O firmware calcula a cinemática e atualiza a posição dos eixos, sincronizando o robô com um painel de controle simples.",
     html_url: "https://github.com/joaovictorchaves18",
     homepage: null,
     language: "C++ / Arduino",
@@ -49,58 +49,58 @@ export default function Projetos() {
   const [searchTerm, setSearchTerm] = useState("");
 
   useEffect(() => {
-    const fetchRepos = async () => {
+    const buscarRepositorios = async () => {
       setLoading(true);
       setApiError(false);
       try {
-        // Chamada assíncrona da API do GitHub para buscar repositórios públicos
+        // Faz a busca dinâmica na API pública do GitHub
         const res = await fetch("https://api.github.com/users/joaovictorchaves18/repos?sort=updated&per_page=10");
         if (!res.ok) {
-          throw new Error("Erro de limites ou API inativa");
+          throw new Error("Erro ao consultar a API");
         }
         const data = await res.json();
         if (Array.isArray(data)) {
-          // Filtramos repositórios que possam ter o mesmo nome dos nossos destaques para evitar duplicidade
+          // Evita duplicar projetos destacados na lista geral
           const filteredData = data.filter(
-            (repo) => !FEATURED_PROJECTS.some((feat) => feat.name.toLowerCase() === repo.name.toLowerCase())
+            (repo) => !PROJETOS_DESTAQUES.some((feat) => feat.name.toLowerCase() === repo.name.toLowerCase())
           );
           setGitHubRepos(filteredData);
         } else {
-          throw new Error("Formato de retorno inválido");
+          throw new Error("Formato incorreto");
         }
       } catch (err) {
-        console.error("Falha ao consultar API do GitHub:", err);
+        console.error("Falha ao carregar repositórios do GitHub:", err);
         setApiError(true);
       } finally {
         setLoading(false);
       }
     };
 
-    fetchRepos();
+    buscarRepositorios();
   }, []);
 
-  // Combina os projetos em destaque e os repositórios dinâmicos do GitHub
-  const allProjects = [...FEATURED_PROJECTS, ...gitHubRepos];
+  // Une os projetos fixados e os carregados via API do GitHub
+  const todosProjetos = [...PROJETOS_DESTAQUES, ...gitHubRepos];
 
-  // Filtra projetos com base no termo de busca digitado pelo usuário
-  const filteredProjects = allProjects.filter((project) => {
-    const nameMatch = project.name.toLowerCase().includes(searchTerm.toLowerCase());
-    const descMatch = (project.description || "").toLowerCase().includes(searchTerm.toLowerCase());
-    const langMatch = (project.language || "").toLowerCase().includes(searchTerm.toLowerCase());
+  // Filtra de acordo com a barra de pesquisa
+  const projetosFiltrados = todosProjetos.filter((projeto) => {
+    const nameMatch = projeto.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const descMatch = (projeto.description || "").toLowerCase().includes(searchTerm.toLowerCase());
+    const langMatch = (projeto.language || "").toLowerCase().includes(searchTerm.toLowerCase());
     return nameMatch || descMatch || langMatch;
   });
 
   return (
     <div className={styles.container}>
-      {/* Header Section */}
+      {/* Cabeçalho */}
       <section className={styles.header}>
         <h1 className={`${styles.title} gradient-text`}>Projetos Desenvolvidos</h1>
         <p className={styles.subtitle}>
-          Galeria de trabalhos combinando aplicações web em destaque e repositórios obtidos dinamicamente pela API do GitHub.
+          Galeria de trabalhos unindo projetos de destaque e repositórios obtidos dinamicamente pela API do GitHub.
         </p>
       </section>
 
-      {/* Filter and Search Bar */}
+      {/* Filtro e Status de Conexão */}
       <section className={`${styles.filterBar} glass-panel`}>
         <div className={styles.searchBox}>
           <Search size={18} className={styles.searchIcon} />
@@ -113,7 +113,7 @@ export default function Projetos() {
           />
         </div>
 
-        {/* API Indicator */}
+        {/* Indicador de Status da API */}
         <div
           className={`${styles.apiSourceTag} ${
             apiError ? styles.fallback : ""
@@ -122,48 +122,48 @@ export default function Projetos() {
           {loading ? (
             <>
               <Terminal size={14} />
-              <span>CARREGANDO API GITHUB...</span>
+              <span>CONECTANDO AO GITHUB...</span>
             </>
           ) : apiError ? (
             <>
               <AlertCircle size={14} style={{ color: "var(--neon-purple)" }} />
-              <span>MODO COMPATIBILIDADE ATIVO (FALLBACK)</span>
+              <span>MODO OFFLINE (PROJETOS LOCAIS)</span>
             </>
           ) : (
             <>
               <Sparkles size={14} />
-              <span>LIVE GITHUB API ATIVA ({gitHubRepos.length} REPOS)</span>
+              <span>CONEXÃO GITHUB: ATIVA ({gitHubRepos.length} PROJETOS)</span>
             </>
           )}
         </div>
       </section>
 
-      {/* Projects Grid Display */}
+      {/* Grid de Projetos */}
       {loading && gitHubRepos.length === 0 && !apiError ? (
         <div className={styles.loaderContainer}>
           <FolderCode className={styles.loadingIcon} size={48} />
-          <div className={styles.loadingText}>Buscando repositórios do João Victor na nuvem do GitHub...</div>
+          <div className={styles.loadingText}>Conectando ao GitHub para ler repositórios...</div>
         </div>
-      ) : filteredProjects.length === 0 ? (
+      ) : projetosFiltrados.length === 0 ? (
         <div className={`${styles.noResults} glass-panel`}>
           <AlertCircle size={32} style={{ color: "var(--text-muted)" }} />
           <h3 className={styles.noResultsTitle}>Nenhum projeto encontrado</h3>
           <p className={styles.noResultsDesc}>
-            Tente digitar outros termos como "Next.js", "C++", "IoT" ou confira a grafia.
+            Tente digitar outros termos como "Next.js", "C++" ou "IoT".
           </p>
         </div>
       ) : (
         <section className={styles.projectsGrid}>
-          {filteredProjects.map((project) => {
-            const isFeatured = project.isFeatured || false;
+          {projetosFiltrados.map((projeto) => {
+            const isFeatured = projeto.isFeatured || false;
             return (
               <div
-                key={project.id || project.name}
+                key={projeto.id || projeto.name}
                 className={`${styles.projectCard} glass-panel`}
               >
                 <div className={styles.cardGlowBorder} />
 
-                {/* Card Top */}
+                {/* Cabeçalho do Card */}
                 <div className={styles.cardHeader}>
                   <div className={styles.projectIconContainer}>
                     {isFeatured ? <Sparkles size={20} /> : <Github size={20} />}
@@ -171,7 +171,7 @@ export default function Projetos() {
 
                   <div className={styles.cardLinks}>
                     <a
-                      href={project.html_url}
+                      href={projeto.html_url}
                       target="_blank"
                       rel="noopener noreferrer"
                       className={styles.linkIcon}
@@ -179,9 +179,9 @@ export default function Projetos() {
                     >
                       <Github size={16} />
                     </a>
-                    {project.homepage && (
+                    {projeto.homepage && (
                       <a
-                        href={project.homepage}
+                        href={projeto.homepage}
                         target="_blank"
                         rel="noopener noreferrer"
                         className={styles.linkIcon}
@@ -193,43 +193,43 @@ export default function Projetos() {
                   </div>
                 </div>
 
-                {/* Card Title & Bio */}
+                {/* Corpo do Card */}
                 <div>
                   <h3 className={styles.projectName}>
-                    {project.name}
+                    {projeto.name}
                     {isFeatured && " 🚀"}
                   </h3>
                 </div>
 
                 <p className={styles.projectDesc}>
-                  {project.description || "Nenhuma descrição fornecida pelo autor do repositório público."}
+                  {projeto.description || "Nenhuma descrição fornecida para este repositório no GitHub."}
                 </p>
 
-                {/* Project Stats (Forks/Stars) */}
+                {/* Status e Estatísticas */}
                 <div className={styles.statsRow}>
-                  {project.language && (
+                  {projeto.language && (
                     <div className={styles.statItem}>
                       <span
                         className={`${styles.langDot} ${
-                          project.language.toLowerCase().includes("c++")
+                          projeto.language.toLowerCase().includes("c++")
                             ? styles.purple
-                            : project.language.toLowerCase().includes("iot")
+                            : projeto.language.toLowerCase().includes("iot")
                             ? styles.emerald
                             : ""
                         }`}
                       />
-                      <span>{project.language}</span>
+                      <span>{projeto.language}</span>
                     </div>
                   )}
 
                   <div className={styles.statItem}>
                     <Star size={12} className={styles.statIcon} />
-                    <span>{project.stargazers_count}</span>
+                    <span>{projeto.stargazers_count}</span>
                   </div>
 
                   <div className={styles.statItem}>
                     <GitFork size={12} className={styles.statIcon} />
-                    <span>{project.forks_count}</span>
+                    <span>{projeto.forks_count}</span>
                   </div>
                 </div>
               </div>
