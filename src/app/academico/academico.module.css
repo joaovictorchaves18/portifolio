@@ -1,0 +1,279 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 24px 80px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+}
+
+/* Header Section */
+.header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  letter-spacing: -1px;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+/* Dual Degree Grid Layout */
+.degreesGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px;
+}
+
+.degreeCard {
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.degreeCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--grad-cyan-blue);
+}
+
+.degreeCard.purple::before {
+  background: var(--grad-purple-pink);
+}
+
+.degreeHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.degreeMeta {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.institution {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--neon-cyan);
+  background: rgba(0, 242, 254, 0.06);
+  border: 1px solid rgba(0, 242, 254, 0.15);
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-weight: 600;
+}
+
+.degreeCard.purple .institution {
+  color: var(--neon-purple);
+  background: rgba(157, 78, 221, 0.06);
+  border-color: rgba(157, 78, 221, 0.15);
+}
+
+.period {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.degreeName {
+  font-size: 1.65rem;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+.degreeDescription {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* Skills/Modules list inside card */
+.skillsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.skillsTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: var(--font-mono);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 6px;
+}
+
+.skillsList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Highlight Items */
+.highlightsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.highlightsTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-family: var(--font-mono);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 6px;
+}
+
+.highlightItem {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.highlightIcon {
+  color: var(--neon-cyan);
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.degreeCard.purple .highlightIcon {
+  color: var(--neon-purple);
+}
+
+/* Synergy section */
+.synergyCard {
+  padding: 32px;
+  border: 1px solid rgba(0, 255, 171, 0.15);
+  box-shadow: 0 0 25px rgba(0, 255, 171, 0.05);
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.synergyCard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--neon-emerald);
+}
+
+.synergyHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.synergyIcon {
+  color: var(--neon-emerald);
+}
+
+.synergyTitle {
+  font-size: 1.5rem;
+  font-weight: 800;
+}
+
+.synergyDesc {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.synergyGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 10px;
+}
+
+.synergyItem {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.01);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: var(--transition-smooth);
+}
+
+.synergyItem:hover {
+  border-color: rgba(0, 255, 171, 0.2);
+  background: rgba(0, 255, 171, 0.02);
+  transform: translateY(-2px);
+}
+
+.synergyItemTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--neon-emerald);
+}
+
+.synergyItemDesc {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsividade */
+@media (max-width: 992px) {
+  .degreesGrid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+  
+  .synergyGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
