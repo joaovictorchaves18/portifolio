@@ -1,6 +1,6 @@
 import React from "react";
 
-// Ícone do GitHub customizado baseado no padrão Lucide original
+
 export function Github({ size = 20, ...props }) {
   return (
     <svg
@@ -21,7 +21,7 @@ export function Github({ size = 20, ...props }) {
   );
 }
 
-// Ícone do LinkedIn customizado baseado no padrão Lucide original
+
 export function Linkedin({ size = 20, ...props }) {
   return (
     <svg
