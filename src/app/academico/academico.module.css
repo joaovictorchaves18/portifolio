@@ -4,11 +4,9 @@
   padding: 40px 24px 80px 24px;
   display: flex;
   flex-direction: column;
-  gap: 60px;
-  animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  gap: 48px;
 }
 
-/* Header Section */
 .header {
   text-align: center;
   max-width: 700px;
@@ -19,9 +17,10 @@
 }
 
 .title {
-  font-size: 2.5rem;
-  font-weight: 800;
+  font-size: 2.25rem;
+  font-weight: 700;
   letter-spacing: -1px;
+  color: var(--text-primary);
 }
 
 .subtitle {
@@ -30,35 +29,21 @@
   line-height: 1.6;
 }
 
-/* Dual Degree Grid Layout */
 .degreesGrid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 32px;
+  gap: 24px;
 }
 
 .degreeCard {
-  padding: 32px;
+  padding: 24px;
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.degreeCard::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: var(--grad-cyan-blue);
-}
-
-.degreeCard.purple::before {
-  background: var(--grad-purple-pink);
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
 }
 
 .degreeHeader {
@@ -77,24 +62,24 @@
 
 .institution {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: var(--neon-cyan);
-  background: rgba(0, 242, 254, 0.06);
-  border: 1px solid rgba(0, 242, 254, 0.15);
-  padding: 4px 12px;
-  border-radius: 999px;
+  font-size: 0.75rem;
+  color: var(--accent-color);
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.15);
+  padding: 4px 10px;
+  border-radius: 6px;
   font-weight: 600;
 }
 
 .degreeCard.purple .institution {
-  color: var(--neon-purple);
-  background: rgba(157, 78, 221, 0.06);
-  border-color: rgba(157, 78, 221, 0.15);
+  color: var(--accent-secondary);
+  background: rgba(100, 116, 139, 0.05);
+  border-color: rgba(100, 116, 139, 0.15);
 }
 
 .period {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   color: var(--text-secondary);
   display: flex;
   align-items: center;
@@ -102,32 +87,32 @@
 }
 
 .degreeName {
-  font-size: 1.65rem;
-  font-weight: 800;
+  font-size: 1.5rem;
+  font-weight: 700;
   line-height: 1.2;
+  color: var(--text-primary);
 }
 
 .degreeDescription {
-  font-size: 0.95rem;
+  font-size: 0.9rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
-/* Skills/Modules list inside card */
 .skillsSection {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .skillsTitle {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--text-primary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-family: var(--font-mono);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--border-subtle);
   padding-bottom: 6px;
 }
 
@@ -137,21 +122,20 @@
   gap: 8px;
 }
 
-/* Highlight Items */
 .highlightsSection {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 10px;
 }
 
 .highlightsTitle {
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   font-weight: 700;
   color: var(--text-primary);
   text-transform: uppercase;
   letter-spacing: 0.5px;
   font-family: var(--font-mono);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--border-subtle);
   padding-bottom: 6px;
 }
 
@@ -159,41 +143,28 @@
   display: flex;
   gap: 12px;
   align-items: flex-start;
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
   line-height: 1.5;
 }
 
 .highlightIcon {
-  color: var(--neon-cyan);
+  color: var(--accent-color);
   margin-top: 2px;
   flex-shrink: 0;
 }
 
 .degreeCard.purple .highlightIcon {
-  color: var(--neon-purple);
+  color: var(--accent-secondary);
 }
 
-/* Synergy section */
 .synergyCard {
-  padding: 32px;
-  border: 1px solid rgba(0, 255, 171, 0.15);
-  box-shadow: 0 0 25px rgba(0, 255, 171, 0.05);
-  position: relative;
-  overflow: hidden;
+  padding: 24px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   display: flex;
   flex-direction: column;
-  gap: 20px;
-}
-
-.synergyCard::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: var(--neon-emerald);
+  gap: 16px;
 }
 
 .synergyHeader {
@@ -203,32 +174,33 @@
 }
 
 .synergyIcon {
-  color: var(--neon-emerald);
+  color: var(--accent-success);
 }
 
 .synergyTitle {
-  font-size: 1.5rem;
-  font-weight: 800;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-primary);
 }
 
 .synergyDesc {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .synergyGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+  gap: 16px;
   margin-top: 10px;
 }
 
 .synergyItem {
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.01);
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  border-radius: 12px;
+  padding: 16px;
+  background: #1e293b;
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -236,15 +208,13 @@
 }
 
 .synergyItem:hover {
-  border-color: rgba(0, 255, 171, 0.2);
-  background: rgba(0, 255, 171, 0.02);
-  transform: translateY(-2px);
+  border-color: var(--accent-color);
 }
 
 .synergyItemTitle {
-  font-size: 1.05rem;
+  font-size: 0.95rem;
   font-weight: 700;
-  color: var(--neon-emerald);
+  color: var(--accent-success);
 }
 
 .synergyItemDesc {
@@ -253,23 +223,10 @@
   line-height: 1.5;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsividade */
 @media (max-width: 992px) {
   .degreesGrid {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 24px;
   }
   
   .synergyGrid {

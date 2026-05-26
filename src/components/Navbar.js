@@ -35,14 +35,12 @@ export default function Navbar() {
   return (
     <header className={`${styles.header} ${scrolled ? styles.scrolled : ""}`}>
       <div className={styles.container}>
-        {/* Logo */}
         <Link href="/" className={styles.logo}>
           <span className={styles.logoTag}>&lt;</span>
-          <span className="gradient-text">JOÃO VICTOR</span>
+          <span>JOÃO VICTOR</span>
           <span className={styles.logoTag}> /&gt;</span>
         </Link>
 
-        {/* Desktop Navigation */}
         <nav className={styles.desktopNav}>
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
@@ -60,7 +58,6 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Mobile Toggle Button */}
         <button
           className={styles.mobileToggle}
           onClick={() => setIsOpen(!isOpen)}
@@ -70,7 +67,6 @@ export default function Navbar() {
         </button>
       </div>
 
-      {/* Mobile Navigation Dropdown */}
       {isOpen && (
         <div className={styles.mobileNavContainer}>
           <nav className={styles.mobileNav}>

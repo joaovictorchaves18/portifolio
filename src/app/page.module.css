@@ -4,23 +4,21 @@
   padding: 40px 24px 80px 24px;
   display: flex;
   flex-direction: column;
-  gap: 60px;
+  gap: 48px;
 }
 
-/* Hero Section */
 .hero {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
   align-items: center;
   gap: 40px;
-  min-height: 500px;
+  min-height: 400px;
 }
 
 .intro {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  animation: slideUp 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .badge {
@@ -29,33 +27,33 @@
   width: fit-content;
   gap: 8px;
   padding: 6px 12px;
-  background: rgba(0, 242, 254, 0.08);
-  border: 1px solid rgba(0, 242, 254, 0.2);
-  border-radius: 999px;
-  color: var(--neon-cyan);
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 6px;
+  color: var(--accent-color);
   font-family: var(--font-mono);
   font-size: 0.8rem;
   font-weight: 600;
-  box-shadow: 0 0 10px rgba(0, 242, 254, 0.05);
 }
 
 .title {
-  font-size: 3.5rem;
-  font-weight: 800;
+  font-size: 3rem;
+  font-weight: 700;
   line-height: 1.1;
   letter-spacing: -1px;
+  color: var(--text-primary);
 }
 
 .subtitle {
-  font-size: 1.25rem;
+  font-size: 1.15rem;
   color: var(--text-secondary);
   line-height: 1.6;
   max-width: 600px;
 }
 
 .highlightText {
-  color: var(--neon-cyan);
-  text-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+  color: var(--accent-color);
+  font-weight: 500;
 }
 
 .ctas {
@@ -70,103 +68,63 @@
   gap: 8px;
   padding: 12px 24px;
   font-size: 0.95rem;
-  font-weight: 600;
-  border-radius: 8px;
+  font-weight: 500;
+  border-radius: 6px;
   cursor: pointer;
   transition: var(--transition-smooth);
   font-family: var(--font-sans);
+  text-decoration: none;
 }
 
 .btnPrimary {
-  background: var(--grad-cyan-blue);
-  color: #000;
+  background: var(--accent-color);
+  color: #ffffff;
   border: none;
-  box-shadow: var(--glow-cyan);
 }
 
 .btnPrimary:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 0 25px rgba(0, 242, 254, 0.6);
+  background: #2563eb;
 }
 
 .btnSecondary {
-  background: rgba(255, 255, 255, 0.03);
+  background: #1e293b;
   color: var(--text-primary);
   border: 1px solid var(--border-subtle);
-  backdrop-filter: blur(8px);
 }
 
 .btnSecondary:hover {
-  background: rgba(255, 255, 255, 0.06);
-  border-color: var(--neon-cyan);
-  color: var(--neon-cyan);
-  transform: translateY(-2px);
+  background: #334155;
+  border-color: var(--accent-color);
+  color: var(--accent-color);
 }
 
-/* Hologram Avatar */
 .avatarContainer {
   display: flex;
   justify-content: center;
   align-items: center;
-  position: relative;
-  height: 350px;
+  height: 300px;
 }
 
 .hologram {
-  width: 260px;
-  height: 260px;
-  position: relative;
+  width: 220px;
+  height: 220px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.hologramRing1 {
-  position: absolute;
+.hologramCore {
   width: 100%;
   height: 100%;
-  border: 2px dashed var(--neon-cyan);
   border-radius: 50%;
-  animation: spinSlow 20s linear infinite;
-  opacity: 0.3;
-}
-
-.hologramRing2 {
-  position: absolute;
-  width: 90%;
-  height: 90%;
-  border: 1px solid var(--neon-purple);
-  border-radius: 50%;
-  animation: spinSlowReverse 15s linear infinite;
-  opacity: 0.4;
-  box-shadow: var(--glow-purple);
-}
-
-.hologramRing3 {
-  position: absolute;
-  width: 75%;
-  height: 75%;
-  border: 3px double var(--neon-cyan);
-  border-radius: 50%;
-  animation: spinSlow 30s linear infinite;
-  opacity: 0.6;
-}
-
-.hologramCore {
-  position: absolute;
-  width: 60%;
-  height: 60%;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(0, 242, 254, 0.15) 0%, transparent 70%);
-  border: 2px solid var(--neon-cyan);
-  box-shadow: var(--glow-cyan), inset 0 0 20px rgba(0, 242, 254, 0.3);
+  background: #1e293b;
+  border: 2px solid var(--accent-color);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   font-family: var(--font-mono);
-  color: var(--neon-cyan);
-  animation: pulseGlow 3s ease-in-out infinite;
+  color: var(--accent-color);
 }
 
 .coreLabel {
@@ -177,11 +135,9 @@
 
 .coreValue {
   font-size: 1.5rem;
-  font-weight: 800;
-  text-shadow: 0 0 8px var(--neon-cyan);
+  font-weight: 700;
 }
 
-/* Quick Stats Grid */
 .stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
@@ -190,7 +146,6 @@
 
 .statCard {
   padding: 24px;
-  text-align: left;
 }
 
 .statHeader {
@@ -201,27 +156,27 @@
 }
 
 .statIcon {
-  padding: 10px;
-  border-radius: 12px;
-  background: rgba(0, 242, 254, 0.05);
-  color: var(--neon-cyan);
-  border: 1px solid rgba(0, 242, 254, 0.1);
+  padding: 8px;
+  border-radius: 6px;
+  background: rgba(59, 130, 246, 0.05);
+  color: var(--accent-color);
+  border: 1px solid rgba(59, 130, 246, 0.1);
 }
 
 .statCard:nth-child(2) .statIcon {
-  background: rgba(157, 78, 221, 0.05);
-  color: var(--neon-purple);
-  border-color: rgba(157, 78, 221, 0.1);
+  background: rgba(100, 116, 139, 0.05);
+  color: var(--accent-secondary);
+  border-color: rgba(100, 116, 139, 0.1);
 }
 
 .statCard:nth-child(3) .statIcon {
-  background: rgba(0, 255, 171, 0.05);
-  color: var(--neon-emerald);
-  border-color: rgba(0, 255, 171, 0.1);
+  background: rgba(34, 197, 94, 0.05);
+  color: var(--accent-success);
+  border-color: rgba(34, 197, 94, 0.1);
 }
 
 .statTitle {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 1px;
   color: var(--text-secondary);
@@ -229,7 +184,7 @@
 }
 
 .statValue {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 4px;
@@ -238,29 +193,16 @@
 .statDesc {
   font-size: 0.85rem;
   color: var(--text-muted);
+  line-height: 1.5;
 }
 
-/* Advice/Quote API Widget */
 .adviceWidget {
-  padding: 32px;
+  padding: 28px;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  gap: 20px;
-  border: 1px solid rgba(0, 242, 254, 0.1);
-  position: relative;
-  overflow: hidden;
-}
-
-.adviceWidget::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 4px;
-  height: 100%;
-  background: var(--grad-cyan-blue);
+  gap: 16px;
 }
 
 .adviceLabel {
@@ -268,13 +210,13 @@
   align-items: center;
   gap: 8px;
   font-family: var(--font-mono);
-  color: var(--neon-cyan);
+  color: var(--accent-color);
   font-size: 0.75rem;
   letter-spacing: 1px;
 }
 
 .adviceText {
-  font-size: 1.35rem;
+  font-size: 1.2rem;
   font-weight: 500;
   color: var(--text-primary);
   line-height: 1.5;
@@ -284,11 +226,11 @@
 
 .adviceLoader {
   color: var(--text-secondary);
-  font-size: 1.1rem;
+  font-size: 1rem;
   display: flex;
   align-items: center;
   gap: 12px;
-  height: 50px;
+  height: 40px;
 }
 
 .btnRefresh {
@@ -297,9 +239,9 @@
   gap: 8px;
   padding: 8px 16px;
   font-size: 0.8rem;
-  background: rgba(0, 242, 254, 0.05);
-  border: 1px solid rgba(0, 242, 254, 0.2);
-  color: var(--neon-cyan);
+  background: rgba(59, 130, 246, 0.05);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: var(--accent-color);
   border-radius: 6px;
   cursor: pointer;
   font-family: var(--font-mono);
@@ -307,42 +249,23 @@
 }
 
 .btnRefresh:hover {
-  background: rgba(0, 242, 254, 0.15);
-  border-color: var(--neon-cyan);
-  box-shadow: 0 0 10px rgba(0, 242, 254, 0.2);
+  background: rgba(59, 130, 246, 0.1);
+  border-color: var(--accent-color);
 }
 
 .spin {
-  animation: spinSlow 1s linear infinite;
+  animation: spin 1s linear infinite;
 }
 
-/* Animations */
-@keyframes spinSlow {
+@keyframes spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
 
-@keyframes spinSlowReverse {
-  from { transform: rotate(360deg); }
-  to { transform: rotate(0deg); }
-}
-
-@keyframes slideUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Responsividade */
 @media (max-width: 992px) {
   .hero {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
     text-align: center;
   }
   
@@ -359,14 +282,14 @@
   }
   
   .avatarContainer {
-    height: 300px;
-    order: -1; /* Exibe a animação no topo em dispositivos móveis */
+    height: 240px;
+    order: -1;
   }
 }
 
 @media (max-width: 576px) {
   .title {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
   
   .ctas {

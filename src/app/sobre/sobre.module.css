@@ -4,11 +4,9 @@
   padding: 40px 24px 80px 24px;
   display: flex;
   flex-direction: column;
-  gap: 60px;
-  animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  gap: 48px;
 }
 
-/* Header Section */
 .header {
   text-align: center;
   max-width: 700px;
@@ -19,9 +17,10 @@
 }
 
 .title {
-  font-size: 2.5rem;
-  font-weight: 800;
+  font-size: 2.25rem;
+  font-weight: 700;
   letter-spacing: -1px;
+  color: var(--text-primary);
 }
 
 .subtitle {
@@ -30,7 +29,6 @@
   line-height: 1.6;
 }
 
-/* Bio Section */
 .bioSection {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -45,14 +43,14 @@
 }
 
 .bioParagraph {
-  font-size: 1.05rem;
+  font-size: 1rem;
   color: var(--text-secondary);
-  line-height: 1.7;
+  line-height: 1.6;
 }
 
 .highlight {
-  color: var(--neon-cyan);
-  font-weight: 600;
+  color: var(--accent-color);
+  font-weight: 500;
 }
 
 .metaGrid {
@@ -78,12 +76,11 @@
 }
 
 .metaValue {
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: var(--text-primary);
 }
 
-/* Animated Tech Core Graphic */
 .graphicContainer {
   display: flex;
   justify-content: center;
@@ -92,28 +89,14 @@
 
 .techHologram {
   width: 280px;
-  height: 280px;
-  border-radius: 24px;
-  padding: 24px;
+  height: 260px;
+  border-radius: 12px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  border: 1px solid rgba(157, 78, 221, 0.15);
-  box-shadow: var(--glow-purple);
-  position: relative;
-  overflow: hidden;
-}
-
-.techHologram::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(157, 78, 221, 0.05) 0%, transparent 60%);
-  animation: float 6s ease-in-out infinite;
-  pointer-events: none;
+  border: 1px solid var(--border-subtle);
+  background: var(--bg-card);
 }
 
 .hologramHeader {
@@ -125,17 +108,17 @@
 .hologramCode {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--neon-purple);
+  color: var(--accent-secondary);
 }
 
 .hologramTerminal {
   font-family: var(--font-mono);
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  margin: auto 0;
+  gap: 8px;
+  margin: 16px 0;
 }
 
 .terminalLine {
@@ -144,32 +127,32 @@
 }
 
 .terminalPrompt {
-  color: var(--neon-cyan);
+  color: var(--accent-color);
 }
 
 .terminalOutput {
   color: var(--text-primary);
 }
 
-/* Tech App Showcase Section */
 .techShowcase {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 24px;
 }
 
 .sectionTitle {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-weight: 700;
   display: flex;
   align-items: center;
   gap: 12px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--border-subtle);
   padding-bottom: 12px;
+  color: var(--text-primary);
 }
 
 .sectionTitleIcon {
-  color: var(--neon-cyan);
+  color: var(--accent-color);
 }
 
 .techGrid {
@@ -183,21 +166,6 @@
   display: flex;
   flex-direction: column;
   gap: 16px;
-  position: relative;
-  overflow: hidden;
-}
-
-.cardGlowBorder {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: var(--grad-cyan-blue);
-}
-
-.techCard:nth-child(even) .cardGlowBorder {
-  background: var(--grad-purple-pink);
 }
 
 .techHeader {
@@ -207,48 +175,36 @@
 }
 
 .techIconContainer {
-  padding: 10px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.02);
+  padding: 8px;
+  border-radius: 6px;
+  background: #1e293b;
   border: 1px solid var(--border-subtle);
   color: var(--text-primary);
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: var(--transition-smooth);
 }
 
 .techCard:hover .techIconContainer {
-  color: var(--neon-cyan);
-  border-color: rgba(0, 242, 254, 0.3);
-  background: rgba(0, 242, 254, 0.05);
-}
-
-.techCard:nth-child(even):hover .techIconContainer {
-  color: var(--neon-purple);
-  border-color: rgba(157, 78, 221, 0.3);
-  background: rgba(157, 78, 221, 0.05);
+  color: var(--accent-color);
+  border-color: var(--accent-color);
 }
 
 .techName {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 700;
 }
 
 .techRole {
   font-family: var(--font-mono);
   font-size: 0.75rem;
-  color: var(--neon-cyan);
-}
-
-.techCard:nth-child(even) .techRole {
-  color: var(--neon-purple);
+  color: var(--accent-color);
 }
 
 .techDesc {
-  font-size: 0.9rem;
+  font-size: 0.85rem;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.5;
 }
 
 .techTags {
@@ -258,32 +214,10 @@
   margin-top: auto;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  50% {
-    transform: translate(5px, 5px) scale(1.05);
-  }
-}
-
-/* Responsividade */
 @media (max-width: 992px) {
   .bioSection {
     grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 32px;
   }
   
   .graphicContainer {
@@ -297,6 +231,6 @@
   }
   
   .title {
-    font-size: 2rem;
+    font-size: 1.75rem;
   }
 }

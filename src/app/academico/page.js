@@ -1,5 +1,5 @@
 import React from "react";
-import { GraduationCap, Calendar, Compass, ShieldAlert, Cpu, Sparkles, CheckCircle2 } from "lucide-react";
+import { Calendar, Sparkles, CheckCircle2 } from "lucide-react";
 import styles from "./academico.module.css";
 
 export const metadata = {
@@ -39,15 +39,13 @@ export default function Academico() {
 
   return (
     <div className={styles.container}>
-      {/* Cabeçalho */}
       <section className={styles.header}>
-        <h1 className={`${styles.title} gradient-text`}>Trajetória Acadêmica</h1>
+        <h1 className={styles.title}>Trajetória Acadêmica</h1>
         <p className={styles.subtitle}>
           Minhas duas graduações: unindo o desenvolvimento de software web à precisão física da automação industrial.
         </p>
       </section>
 
-      {/* Grid com Cursos */}
       <section className={styles.degreesGrid}>
         {cursos.map((degree) => (
           <div
@@ -67,7 +65,6 @@ export default function Academico() {
 
             <p className={styles.degreeDescription}>{degree.desc}</p>
 
-            {/* Áreas de Foco */}
             <div className={styles.skillsSection}>
               <h3 className={styles.skillsTitle}>Focos de Aprendizado</h3>
               <div className={styles.skillsList}>
@@ -82,7 +79,6 @@ export default function Academico() {
               </div>
             </div>
 
-            {/* Pontos de Destaque */}
             <div className={styles.highlightsSection}>
               <h3 className={styles.highlightsTitle}>Destaques do Curso</h3>
               <div className={styles.highlightsSectionList}>
@@ -98,7 +94,6 @@ export default function Academico() {
         ))}
       </section>
 
-      {/* Sinergia de Cursos */}
       <section className={`${styles.synergyCard} glass-panel`}>
         <div className={styles.synergyHeader}>
           <Sparkles className={styles.synergyIcon} size={24} />

@@ -9,7 +9,6 @@ export default function Footer() {
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
-        {/* Informações de direitos autorais */}
         <div className={styles.info}>
           <p className={styles.copyright}>
             &copy; {currentYear} <span className={styles.highlight}>João Victor de Oliveira Chaves</span>
@@ -19,16 +18,14 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Status do site (Estilo Cyber) */}
         <div className={styles.statusContainer}>
           <span className={styles.statusPulse} />
           <span className={styles.statusText}>
-            <Cpu size={12} className={styles.statusIcon} />
+            <Cpu size={12} />
             STATUS: PORTFÓLIO ONLINE
           </span>
         </div>
 
-        {/* Links para redes sociais */}
         <div className={styles.socials}>
           <a
             href="https://github.com/joaovictorchaves18"

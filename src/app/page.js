@@ -5,7 +5,6 @@ import Link from "next/link";
 import { ArrowRight, RefreshCw, Sparkles, Terminal, GraduationCap, Code2, Globe } from "lucide-react";
 import styles from "./page.module.css";
 
-// Conselhos de backup caso a API falhe ou dê limite de requisições
 const CONSELHOS_BACKUP = [
   "Se o código funciona e você não sabe por que, não toque nele. Se não funciona e você não sabe por que, bem-vindo à programação.",
   "Simplificar é o primeiro passo para a robustez de um sistema de automação e de software.",
@@ -21,7 +20,6 @@ export default function Home() {
   const [error, setError] = useState(false);
   const [refreshSpin, setRefreshSpin] = useState(false);
 
-  // Função que busca conselhos na API pública
   const carregarConselho = async () => {
     setLoading(true);
     setRefreshSpin(true);
@@ -37,7 +35,6 @@ export default function Home() {
       }
     } catch (err) {
       console.error("Falha ao buscar conselho:", err);
-      // Fallback local caso caia a rede
       const randomIndex = Math.floor(Math.random() * CONSELHOS_BACKUP.length);
       setAdvice(CONSELHOS_BACKUP[randomIndex]);
       setError(true);
@@ -53,7 +50,6 @@ export default function Home() {
 
   return (
     <div className={styles.container}>
-      {/* Seção Principal / Banner */}
       <section className={styles.hero}>
         <div className={styles.intro}>
           <div className={styles.badge}>
@@ -62,12 +58,12 @@ export default function Home() {
           </div>
           <h1 className={styles.title}>
             Olá, eu sou o <br />
-            <span className="gradient-text-full">João Victor Chaves</span>
+            <span>João Victor Chaves</span>
           </h1>
           <p className={styles.subtitle}>
-            Tenho <span className={styles.highlightText}>19 anos</span> e estudo a intersecção do mundo digital e físico. 
-            Sou estudante de <span className={styles.highlightText}>Sistemas para Internet na UNICAP</span> e de{" "}
-            <span className={styles.highlightText}>Engenharia de Controle e Automação na Federal (UFPE)</span>.
+            Tenho 19 anos e estudo a intersecção do mundo digital e físico. 
+            Sou estudante de Sistemas para Internet na UNICAP e de 
+            Engenharia de Controle e Automação na Federal (UFPE).
           </p>
           <div className={styles.ctas}>
             <Link href="/projetos" className={styles.btnPrimary}>
@@ -79,12 +75,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Efeito Visual com Anéis (Holograma de Estudante) */}
         <div className={styles.avatarContainer}>
           <div className={styles.hologram}>
-            <div className={styles.hologramRing1} />
-            <div className={styles.hologramRing2} />
-            <div className={styles.hologramRing3} />
             <div className={styles.hologramCore}>
               <span className={styles.coreLabel}>ESTUDANTE</span>
               <span className={styles.coreValue}>J V</span>
@@ -94,7 +86,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Cards de Destaque */}
       <section className={styles.stats}>
         <div className={`${styles.statCard} glass-panel`}>
           <div className={styles.statHeader}>
@@ -130,7 +121,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Conselho dinâmico consumindo API */}
       <section className={`${styles.adviceWidget} glass-panel`}>
         <div className={styles.adviceLabel}>
           <Terminal size={14} />

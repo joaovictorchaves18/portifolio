@@ -1,5 +1,5 @@
 import React from "react";
-import { Cpu, Terminal, BookOpen, Layers, Settings, Globe2, Sparkles, Code2 } from "lucide-react";
+import { Cpu, Terminal, Layers, Settings, Globe2, Sparkles, Code2 } from "lucide-react";
 import styles from "./sobre.module.css";
 
 export const metadata = {
@@ -8,7 +8,6 @@ export const metadata = {
 };
 
 export default function Sobre() {
-  // Lista de tecnologias e módulos usados no projeto (exigência do trabalho)
   const modulosProjeto = [
     {
       name: "Next.js 15+ (App Router)",
@@ -56,15 +55,13 @@ export default function Sobre() {
 
   return (
     <div className={styles.container}>
-      {/* Cabeçalho */}
       <section className={styles.header}>
-        <h1 className={`${styles.title} gradient-text`}>Sobre Mim &amp; Arquitetura</h1>
+        <h1 className={styles.title}>Sobre Mim &amp; Arquitetura</h1>
         <p className={styles.subtitle}>
           Conheça minha trajetória de estudos e os detalhes de programação usados para construir este site.
         </p>
       </section>
 
-      {/* Biografia e Gráfico de Terminal */}
       <section className={styles.bioSection}>
         <div className={styles.bioContent}>
           <h2 className={styles.sectionTitle}>
@@ -85,7 +82,6 @@ export default function Sobre() {
             Esta união me dá facilidade para criar sites bonitos e modernos e, ao mesmo tempo, saber programar chips físicos para enviar e receber informações através da internet.
           </p>
 
-          {/* Dados Rápidos */}
           <div className={styles.metaGrid}>
             <div className={`${styles.metaItem} glass-panel`}>
               <span className={styles.metaLabel}>Idade</span>
@@ -106,7 +102,6 @@ export default function Sobre() {
           </div>
         </div>
 
-        {/* Terminal Ilustrativo */}
         <div className={styles.graphicContainer}>
           <div className={`${styles.techHologram} glass-panel`}>
             <div className={styles.hologramHeader}>
@@ -128,7 +123,7 @@ export default function Sobre() {
               </div>
               <div className={styles.terminalLine}>
                 <span className={styles.terminalPrompt}>&gt;</span>
-                <span className={styles.terminalOutput} style={{ color: "var(--neon-cyan)" }}>Sistemas para Internet</span>
+                <span className={styles.terminalOutput} style={{ color: "var(--accent-color)" }}>Sistemas para Internet</span>
               </div>
               <div className={styles.terminalLine}>
                 <span className={styles.terminalPrompt}>$</span>
@@ -136,7 +131,7 @@ export default function Sobre() {
               </div>
               <div className={styles.terminalLine}>
                 <span className={styles.terminalPrompt}>&gt;</span>
-                <span className={styles.terminalOutput} style={{ color: "var(--neon-purple)" }}>Controle e Automação</span>
+                <span className={styles.terminalOutput} style={{ color: "var(--accent-secondary)" }}>Controle e Automação</span>
               </div>
             </div>
             <div className={styles.hologramHeader}>
@@ -146,7 +141,6 @@ export default function Sobre() {
         </div>
       </section>
 
-      {/* Grid de Tecnologias */}
       <section className={styles.techShowcase}>
         <h2 className={styles.sectionTitle}>
           <Layers className={styles.sectionTitleIcon} size={22} />

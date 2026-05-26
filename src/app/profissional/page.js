@@ -1,5 +1,5 @@
 import React from "react";
-import { Briefcase, Calendar, ChevronRight, Terminal, Star, Hammer } from "lucide-react";
+import { Calendar, ChevronRight, Terminal, Star, Hammer } from "lucide-react";
 import styles from "./profissional.module.css";
 
 export const metadata = {
@@ -54,22 +54,18 @@ export default function Profissional() {
 
   return (
     <div className={styles.container}>
-      {/* Cabeçalho */}
       <section className={styles.header}>
-        <h1 className={`${styles.title} gradient-text`}>Trajetória Profissional</h1>
+        <h1 className={styles.title}>Trajetória Profissional</h1>
         <p className={styles.subtitle}>
           Meus projetos práticos desenvolvidos, consultorias autônomas de web e estudos de IoT aplicados.
         </p>
       </section>
 
-      {/* Timeline das Experiências */}
       <section className={styles.timeline}>
         {experiencias.map((exp, index) => (
           <div key={exp.role} className={styles.timelineItem}>
-            {/* Ponto na linha lateral */}
             <div className={styles.timelineDot} />
 
-            {/* Card com a Experiência */}
             <div className={`${styles.experienceCard} glass-panel`}>
               <div className={styles.cardHeader}>
                 <div>
@@ -85,7 +81,6 @@ export default function Profissional() {
               <div className={styles.cardBody}>
                 <p className={styles.description}>{exp.desc}</p>
 
-                {/* Lista de Atividades */}
                 <div className={styles.activitiesList}>
                   {exp.activities.map((act, idx) => (
                     <div key={idx} className={styles.activityItem}>
@@ -95,7 +90,6 @@ export default function Profissional() {
                   ))}
                 </div>
 
-                {/* Tecnologias Usadas */}
                 <div className={styles.techTags}>
                   {exp.tags.map((tag) => (
                     <span

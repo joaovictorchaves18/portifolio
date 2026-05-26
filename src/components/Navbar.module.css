@@ -4,20 +4,15 @@
   left: 0;
   width: 100%;
   z-index: 100;
-  background: rgba(8, 9, 12, 0.4);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+  background: #0f172a;
+  border-bottom: 1px solid #1e293b;
   transition: var(--transition-smooth);
 }
 
 .scrolled {
-  background: rgba(8, 9, 12, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(0, 242, 254, 0.1);
-  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
-  padding: 12px 0;
+  background: #0f172a;
+  border-bottom: 1px solid #334155;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
 }
 
 .container {
@@ -27,27 +22,22 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: var(--transition-smooth);
 }
 
 .logo {
   display: flex;
   align-items: center;
   font-family: var(--font-mono);
-  font-weight: 800;
-  font-size: 1.25rem;
+  font-weight: 700;
+  font-size: 1.15rem;
   letter-spacing: -0.5px;
   text-decoration: none;
+  color: var(--text-primary);
 }
 
 .logoTag {
   color: var(--text-muted);
   font-weight: 400;
-  transition: var(--transition-smooth);
-}
-
-.logo:hover .logoTag {
-  color: var(--neon-cyan);
 }
 
 .desktopNav {
@@ -64,7 +54,7 @@
   color: var(--text-secondary);
   font-size: 0.9rem;
   font-weight: 500;
-  border-radius: 8px;
+  border-radius: 6px;
   position: relative;
   transition: var(--transition-smooth);
 }
@@ -78,20 +68,20 @@
 
 .navLink:hover {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.03);
+  background: #1e293b;
 }
 
 .navLink:hover .navIcon {
-  color: var(--neon-cyan);
+  color: var(--accent-color);
 }
 
 .active {
-  color: var(--neon-cyan);
-  background: rgba(0, 242, 254, 0.05);
+  color: var(--accent-color);
+  background: rgba(59, 130, 246, 0.1);
 }
 
 .active .navIcon {
-  color: var(--neon-cyan);
+  color: var(--accent-color);
 }
 
 .activeDot {
@@ -99,12 +89,10 @@
   bottom: 0;
   left: 50%;
   transform: translateX(-50%);
-  width: 16px;
+  width: 12px;
   height: 2px;
-  background: var(--neon-cyan);
+  background: var(--accent-color);
   border-radius: 999px;
-  box-shadow: var(--glow-cyan);
-  animation: fadeIn 0.3s ease forwards;
 }
 
 .mobileToggle {
@@ -114,13 +102,11 @@
   color: var(--text-primary);
   cursor: pointer;
   padding: 4px;
-  border-radius: 8px;
-  transition: var(--transition-smooth);
+  border-radius: 6px;
 }
 
 .mobileToggle:hover {
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--neon-cyan);
+  background: #1e293b;
 }
 
 .mobileNavContainer {
@@ -128,13 +114,10 @@
   top: 100%;
   left: 0;
   width: 100%;
-  background: rgba(8, 9, 12, 0.95);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(0, 242, 254, 0.1);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8);
+  background: #0f172a;
+  border-bottom: 1px solid #334155;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
   padding: 16px 24px;
-  animation: slideDown 0.3s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
 .mobileNav {
@@ -150,8 +133,7 @@
   padding: 12px 16px;
   color: var(--text-secondary);
   font-weight: 500;
-  border-radius: 8px;
-  transition: var(--transition-smooth);
+  border-radius: 6px;
 }
 
 .mobileNavIcon {
@@ -162,31 +144,18 @@
 
 .mobileNavLink:hover {
   color: var(--text-primary);
-  background: rgba(255, 255, 255, 0.05);
+  background: #1e293b;
 }
 
 .mobileActive {
-  color: var(--neon-cyan);
-  background: rgba(0, 242, 254, 0.08);
+  color: var(--accent-color);
+  background: rgba(59, 130, 246, 0.1);
 }
 
 .mobileActive .mobileNavIcon {
-  color: var(--neon-cyan);
+  color: var(--accent-color);
 }
 
-/* Keyframes */
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Breakpoint Móvel */
 @media (max-width: 768px) {
   .desktopNav {
     display: none;
@@ -194,7 +163,5 @@
   
   .mobileToggle {
     display: flex;
-    align-items: center;
-    justify-content: center;
   }
 }

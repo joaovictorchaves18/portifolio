@@ -5,7 +5,6 @@ import { Search, ExternalLink, Star, GitFork, FolderCode, Terminal, Sparkles, Al
 import { Github } from "@/components/Icons";
 import styles from "./projetos.module.css";
 
-// Projetos destacados do João (incluindo seu trabalho de bilheteria real da Copa!)
 const PROJETOS_DESTAQUES = [
   {
     id: "destaque-comedoria",
@@ -53,14 +52,12 @@ export default function Projetos() {
       setLoading(true);
       setApiError(false);
       try {
-        // Faz a busca dinâmica na API pública do GitHub
         const res = await fetch("https://api.github.com/users/joaovictorchaves18/repos?sort=updated&per_page=10");
         if (!res.ok) {
           throw new Error("Erro ao consultar a API");
         }
         const data = await res.json();
         if (Array.isArray(data)) {
-          // Evita duplicar projetos destacados na lista geral
           const filteredData = data.filter(
             (repo) => !PROJETOS_DESTAQUES.some((feat) => feat.name.toLowerCase() === repo.name.toLowerCase())
           );
@@ -79,10 +76,8 @@ export default function Projetos() {
     buscarRepositorios();
   }, []);
 
-  // Une os projetos fixados e os carregados via API do GitHub
   const todosProjetos = [...PROJETOS_DESTAQUES, ...gitHubRepos];
 
-  // Filtra de acordo com a barra de pesquisa
   const projetosFiltrados = todosProjetos.filter((projeto) => {
     const nameMatch = projeto.name.toLowerCase().includes(searchTerm.toLowerCase());
     const descMatch = (projeto.description || "").toLowerCase().includes(searchTerm.toLowerCase());
@@ -92,15 +87,13 @@ export default function Projetos() {
 
   return (
     <div className={styles.container}>
-      {/* Cabeçalho */}
       <section className={styles.header}>
-        <h1 className={`${styles.title} gradient-text`}>Projetos Desenvolvidos</h1>
+        <h1 className={styles.title}>Projetos Desenvolvidos</h1>
         <p className={styles.subtitle}>
           Galeria de trabalhos unindo projetos de destaque e repositórios obtidos dinamicamente pela API do GitHub.
         </p>
       </section>
 
-      {/* Filtro e Status de Conexão */}
       <section className={`${styles.filterBar} glass-panel`}>
         <div className={styles.searchBox}>
           <Search size={18} className={styles.searchIcon} />
@@ -113,7 +106,6 @@ export default function Projetos() {
           />
         </div>
 
-        {/* Indicador de Status da API */}
         <div
           className={`${styles.apiSourceTag} ${
             apiError ? styles.fallback : ""
@@ -126,7 +118,7 @@ export default function Projetos() {
             </>
           ) : apiError ? (
             <>
-              <AlertCircle size={14} style={{ color: "var(--neon-purple)" }} />
+              <AlertCircle size={14} style={{ color: "var(--accent-secondary)" }} />
               <span>MODO OFFLINE (PROJETOS LOCAIS)</span>
             </>
           ) : (
@@ -138,7 +130,6 @@ export default function Projetos() {
         </div>
       </section>
 
-      {/* Grid de Projetos */}
       {loading && gitHubRepos.length === 0 && !apiError ? (
         <div className={styles.loaderContainer}>
           <FolderCode className={styles.loadingIcon} size={48} />
@@ -163,7 +154,6 @@ export default function Projetos() {
               >
                 <div className={styles.cardGlowBorder} />
 
-                {/* Cabeçalho do Card */}
                 <div className={styles.cardHeader}>
                   <div className={styles.projectIconContainer}>
                     {isFeatured ? <Sparkles size={20} /> : <Github size={20} />}
@@ -193,7 +183,6 @@ export default function Projetos() {
                   </div>
                 </div>
 
-                {/* Corpo do Card */}
                 <div>
                   <h3 className={styles.projectName}>
                     {projeto.name}
@@ -205,7 +194,6 @@ export default function Projetos() {
                   {projeto.description || "Nenhuma descrição fornecida para este repositório no GitHub."}
                 </p>
 
-                {/* Status e Estatísticas */}
                 <div className={styles.statsRow}>
                   {projeto.language && (
                     <div className={styles.statItem}>

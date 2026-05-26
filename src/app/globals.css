@@ -1,47 +1,24 @@
-/* CSS Global - Portfólio Premium João Victor */
-
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
-
 :root {
-  /* Cores Principais */
-  --bg-deep: #08090c;
-  --bg-card: rgba(17, 20, 28, 0.65);
-  --bg-card-hover: rgba(26, 30, 43, 0.85);
-  --border-glow: rgba(0, 242, 254, 0.15);
-  --border-subtle: rgba(255, 255, 255, 0.06);
-  --border-focus: rgba(0, 242, 254, 0.4);
+  --bg-deep: #0f172a;
+  --bg-card: #1e293b;
+  --bg-card-hover: #1e293b;
+  --border-subtle: #334155;
+  --border-glow: #475569;
 
-  /* Cores Neon */
-  --neon-cyan: #00f2fe;
-  --neon-purple: #9d4edd;
-  --neon-blue: #4facfe;
-  --neon-emerald: #00ffab;
-  --neon-pink: #ff007f;
+  --accent-color: #3b82f6;
+  --accent-secondary: #64748b;
+  --accent-success: #22c55e;
 
-  /* Gráficos de Gradiente */
-  --grad-cyan-blue: linear-gradient(135deg, #00f2fe 0%, #4facfe 100%);
-  --grad-purple-pink: linear-gradient(135deg, #7b2cbf 0%, #ff007f 100%);
-  --grad-dark-card: linear-gradient(145deg, rgba(20, 24, 33, 0.8) 0%, rgba(10, 12, 18, 0.8) 100%);
-  --grad-neon-text: linear-gradient(90deg, #00f2fe, #4facfe, #9d4edd, #ff007f);
-
-  /* Texto */
   --text-primary: #f8fafc;
   --text-secondary: #94a3b8;
   --text-muted: #64748b;
-  --text-neon: #00f2fe;
 
-  /* Fontes */
   --font-sans: 'Plus Jakarta Sans', sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Efeitos */
-  --glow-cyan: 0 0 15px rgba(0, 242, 254, 0.3);
-  --glow-purple: 0 0 15px rgba(157, 78, 221, 0.3);
-  --glow-card: 0 10px 30px -10px rgba(0, 0, 0, 0.7);
-  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-smooth: all 0.2s ease-in-out;
 }
 
-/* Reset Geral */
 * {
   box-sizing: border-box;
   padding: 0;
@@ -57,10 +34,8 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  scroll-behavior: smooth;
 }
 
-/* Scrollbar Personalizada */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -68,166 +43,71 @@ html, body {
   background: var(--bg-deep);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.1);
+  background: var(--border-subtle);
   border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--neon-cyan);
-  box-shadow: var(--glow-cyan);
+  background: var(--accent-color);
 }
 
-/* Animações Globais */
-@keyframes pulseGlow {
-  0%, 100% {
-    opacity: 0.5;
-  }
-  50% {
-    opacity: 0.8;
-    box-shadow: 0 0 25px rgba(0, 242, 254, 0.4);
-  }
-}
-
-@keyframes float {
-  0%, 100% {
-    transform: translateY(0);
-  }
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-@keyframes gradientText {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Utilidades Reutilizáveis */
-.animate-fade-in {
-  animation: fadeIn 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
-}
-
-.gradient-text {
-  background: var(--grad-cyan-blue);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 200% auto;
-}
-
-.gradient-text-full {
-  background: var(--grad-neon-text);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-size: 300% auto;
-  animation: gradientText 8s ease infinite;
-}
-
-/* Elementos de Grid de Fundo Premium Cyber */
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: 
-    linear-gradient(rgba(0, 242, 254, 0.015) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 242, 254, 0.015) 1px, transparent 1px);
-  background-size: 40px 40px;
-  background-position: center;
-  z-index: -2;
-  pointer-events: none;
-}
-
-body::after {
-  content: "";
-  position: fixed;
-  top: -20%;
-  left: -20%;
-  width: 140vw;
-  height: 140vh;
-  background: radial-gradient(circle at 80% 20%, rgba(157, 78, 221, 0.08) 0%, transparent 40%),
-              radial-gradient(circle at 20% 80%, rgba(0, 242, 254, 0.08) 0%, transparent 40%);
-  z-index: -1;
-  pointer-events: none;
-}
-
-/* Estilo do Container de Layout */
 .app-container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
   position: relative;
-  z-index: 1;
 }
 
 main {
   flex: 1;
 }
 
-/* Efeito Glassmorphism Premium */
 .glass-panel {
   background: var(--bg-card);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-subtle);
-  border-radius: 16px;
-  box-shadow: var(--glow-card);
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
   transition: var(--transition-smooth);
 }
 
 .glass-panel:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--border-glow);
-  box-shadow: var(--glow-card), 0 0 15px rgba(0, 242, 254, 0.1);
+  border-color: var(--accent-color);
 }
 
-/* Tags de Habilidades e Tecnologias */
 .tech-tag {
   font-family: var(--font-mono);
   font-size: 0.75rem;
   padding: 4px 10px;
-  border-radius: 9999px;
-  background: rgba(0, 242, 254, 0.06);
-  border: 1px solid rgba(0, 242, 254, 0.15);
-  color: var(--neon-cyan);
+  border-radius: 6px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  color: var(--accent-color);
   transition: var(--transition-smooth);
 }
 
 .tech-tag:hover {
-  background: rgba(0, 242, 254, 0.15);
-  box-shadow: 0 0 8px rgba(0, 242, 254, 0.2);
+  background: rgba(59, 130, 246, 0.2);
 }
 
 .tech-tag.purple {
-  background: rgba(157, 78, 221, 0.06);
-  border-color: rgba(157, 78, 221, 0.15);
-  color: var(--neon-purple);
+  background: rgba(100, 116, 139, 0.1);
+  border-color: rgba(100, 116, 139, 0.2);
+  color: var(--accent-secondary);
 }
 
 .tech-tag.purple:hover {
-  background: rgba(157, 78, 221, 0.15);
-  box-shadow: 0 0 8px rgba(157, 78, 221, 0.2);
+  background: rgba(100, 116, 139, 0.2);
 }
 
 .tech-tag.emerald {
-  background: rgba(0, 255, 171, 0.06);
-  border-color: rgba(0, 255, 171, 0.15);
-  color: var(--neon-emerald);
+  background: rgba(34, 197, 94, 0.1);
+  border-color: rgba(34, 197, 94, 0.2);
+  color: var(--accent-success);
 }
 
 .tech-tag.emerald:hover {
-  background: rgba(0, 255, 171, 0.15);
-  box-shadow: 0 0 8px rgba(0, 255, 171, 0.2);
+  background: rgba(34, 197, 94, 0.2);
+}
+
+.gradient-text, .gradient-text-full {
+  color: var(--text-primary);
 }
