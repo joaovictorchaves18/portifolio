@@ -109,7 +109,8 @@
   gap: 16px;
   position: relative;
   overflow: hidden;
-  height: 100%;
+  min-height: 240px;
+  height: auto;
   border: 1px solid var(--border-subtle);
   background: var(--bg-card);
 }
